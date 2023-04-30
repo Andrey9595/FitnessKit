@@ -7,5 +7,5 @@ import ru.anb.fitnesskit.data.Training
 interface ApiService {
 
     @GET("schedule/get_v3/?club_id=2")
-    suspend fun getTrainingList(): Response<List<Training>>
+    suspend fun getTrainingList(): Response<Training>
 }
