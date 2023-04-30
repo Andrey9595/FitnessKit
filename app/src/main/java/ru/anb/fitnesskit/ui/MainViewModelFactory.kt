@@ -6,7 +6,7 @@ import ru.anb.fitnesskit.api.ApiService
 
 class MainViewModelFactory constructor(
     private val retrofit: ApiService
-): ViewModelProvider.Factory {
+) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ViewModelTraining::class.java)) {

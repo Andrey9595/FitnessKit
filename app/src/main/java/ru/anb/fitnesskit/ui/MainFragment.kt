@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
         viewModel =
             (activity?.application as App).provideViewModel(ViewModelTraining::class.java, this)
 
-       val trainingAdapter = TrainingAdapter { viewModel.getTrainerById(it) }
+        val trainingAdapter = TrainingAdapter { viewModel.getTrainerById(it) }
 
         mBinding.trainingAdapter.adapter = trainingAdapter
         viewModel.liveData.observe(requireActivity()) {

@@ -10,7 +10,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200">
+    android:background="@drawable/frame">
 
     <TextView
         android:id="@+id/startTime"
@@ -34,8 +34,8 @@
 
     <TextView
         android:id="@+id/trening"
-        android:layout_width="180dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="Силовая тренировка"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/treningTime"
+        android:id="@+id/trainingTime"
         android:layout_width="100dp"
         android:layout_height="20dp"
         android:layout_marginTop="32dp"
@@ -65,34 +65,35 @@
         android:id="@+id/hall"
         android:layout_width="100dp"
         android:layout_height="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:text="Студия 2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/treningTime" />
+        app:layout_constraintStart_toEndOf="@+id/geo"
+        app:layout_constraintTop_toBottomOf="@+id/trainingTime" />
 
     <ImageView
         android:id="@+id/profile"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_person"
         app:layout_constraintStart_toEndOf="@+id/lastTime"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="68dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/trening" />
 
     <ImageView
         android:id="@+id/geo"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:background="@drawable/ic_location"
         app:layout_constraintEnd_toStartOf="@+id/hall"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/name"
-        tools:layout_editor_absoluteY="68dp"
-        tools:srcCompat="@tools:sample/avatars"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/trainingTime" />
 
     <TextView
         android:id="@+id/color"

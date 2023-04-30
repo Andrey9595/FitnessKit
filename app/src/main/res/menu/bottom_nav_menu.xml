@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_lessons"
+        android:title="" />
+    <item
+        android:id="@+id/applicationsFragment"
+        android:icon="@drawable/ic_note"
+        android:title="" />
+    <item
+        android:id="@+id/addFragment"
+        android:icon="@drawable/ic_add"
+        android:title="" />
+    <item
+        android:id="@+id/chatFragment"
+        android:icon="@drawable/ic_chat"
+        android:title="" />
+    <item
+        android:id="@+id/stillFragment"
+        android:icon="@drawable/ic_still"
+        android:title="" />
 
 </menu>
