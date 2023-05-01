@@ -39,4 +39,5 @@ data class Lesson(
     val tabId: Int
 ) {
     val formatedDate: LocalDate get() = LocalDate.parse(date)
+    val dateWithDay get() = "${formatedDate.dayOfWeek}" + ", ${formatedDate.dayOfMonth}"
 }

@@ -49,9 +49,9 @@ class MainFragment : Fragment() {
         }
         val map = emptyMap<String, ArrayList<Lesson>>().toMutableMap()
         list.forEach {
-            if (map[it.date] == null)
-                map[it.date] = ArrayList()
-            map[it.date]?.add(it)
+            if (map[it.dateWithDay] == null)
+                map[it.dateWithDay] = ArrayList()
+            map[it.dateWithDay]?.add(it)
         }
 
         val newList = ArrayList<LessonEntity>()
@@ -68,5 +68,4 @@ class MainFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }
