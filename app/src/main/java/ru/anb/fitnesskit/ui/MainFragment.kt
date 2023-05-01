@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import ru.anb.fitnesskit.adapter.TrainingAdapter
 import ru.anb.fitnesskit.api.ApiResult
+import ru.anb.fitnesskit.data.*
 import ru.anb.fitnesskit.databinding.FragmentMainBinding
 import ru.anb.fitnesskit.di.App
 
@@ -32,15 +33,35 @@ class MainFragment : Fragment() {
             (activity?.application as App).provideViewModel(ViewModelTraining::class.java, this)
 
         val trainingAdapter = TrainingAdapter { viewModel.getTrainerById(it) }
-
         mBinding.trainingAdapter.adapter = trainingAdapter
         viewModel.liveData.observe(requireActivity()) {
             if (it is ApiResult.Success && it.data != null) {
-                trainingAdapter.setData(it.data.lessons)
+                trainingAdapter.setData(sortLessons(it.data))
             } else {
                 Toast.makeText(requireContext(), it.errorMessage, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    fun sortLessons(body: Training): ArrayList<LessonEntity> {
+        val list = body.lessons.sortedByDescending {
+            it.formatedDate
+        }
+        val map = emptyMap<String, ArrayList<Lesson>>().toMutableMap()
+        list.forEach {
+            if (map[it.date] == null)
+                map[it.date] = ArrayList()
+            map[it.date]?.add(it)
+        }
+
+        val newList = ArrayList<LessonEntity>()
+        map.forEach() { entry ->
+            newList.add(LessonEntity(type = TrainingType.HEADER, null, entry.key))
+            entry.value.mapTo(newList) {
+                LessonEntity(type = TrainingType.TRAIN, it, null)
+            }
+        }
+        return newList
     }
 
     override fun onDestroy() {

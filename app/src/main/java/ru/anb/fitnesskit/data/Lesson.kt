@@ -2,6 +2,7 @@ package ru.anb.fitnesskit.data
 
 
 import com.google.gson.annotations.SerializedName
+import java.time.LocalDate
 
 data class Lesson(
     @SerializedName("appointment_id")
@@ -36,4 +37,6 @@ data class Lesson(
     val tab: String,
     @SerializedName("tab_id")
     val tabId: Int
-)
+) {
+    val formatedDate: LocalDate get() = LocalDate.parse(date)
+}
